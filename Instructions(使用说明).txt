@@ -1,26 +1,32 @@
-Ê¹ÓÃËµÃ÷£º
+ä½¿ç”¨è¯´æ˜ï¼š
 -----------------------------------------------------------
 -----------------------------------------------------------
 -----------------------------------------------------------
-1.½«Logger.javaµ¼ÈëÏîÄ¿
+1.å°†Logger.javaå¯¼å…¥é¡¹ç›®
 ---------------------------------------
 ---------------------------------------
-2.×Ô¶¨ÒåXXApplicationÀà¼Ì³ĞÓÚApplicationÀà
+2.è‡ªå®šä¹‰XXApplicationç±»ç»§æ‰¿äºApplicationç±»
 
-  ÔÚXXApplicationÀàµÄonCreate·½·¨ÖĞ³õÊ¼»¯Logger:
+  åœ¨AndroidManifest.xmlæ–‡ä»¶ä¸­æ·»åŠ ï¼š
+  <applcation
+      //æ·»åŠ æ­¤è¡Œä»£ç 
+      android:name=".XXApplication"
+  ></application>
+
+  åœ¨XXApplicationç±»çš„onCreateæ–¹æ³•ä¸­åˆå§‹åŒ–Logger:
      @Override
     public void onCreate() {
         super.onCreate();
 
-        //appCtx´ú±íXXApplicationµÄContext(ÉÏÏÂÎÄ)
-        //isWriter´ú±íÊÇ·ñÔÊĞí½«ÈÕÖ¾ÎÄ¼ş±£´æµ½±¾µØ£¬ÖµÎª£ºtrue/false
-        //level´ú±íÔÊĞí´òÓ¡µÄLogµÄ×îµÍ¼¶±ğ£¬ÖµÎª£ºVERBOSE¡¢DEBUG¡¢INFO¡¢WARN¡¢ERROR¡¢ASSERT¡¢CLOSE£¨´ú±í²»´òÓ¡ÈÕÖ¾£©
+        //appCtxä»£è¡¨XXApplicationçš„Context(ä¸Šä¸‹æ–‡)
+        //isWriterä»£è¡¨æ˜¯å¦å…è®¸å°†æ—¥å¿—æ–‡ä»¶ä¿å­˜åˆ°æœ¬åœ°ï¼Œå€¼ä¸ºï¼štrue/false
+        //levelä»£è¡¨å…è®¸æ‰“å°çš„Logçš„æœ€ä½çº§åˆ«ï¼Œå€¼ä¸ºï¼šVERBOSEã€DEBUGã€INFOã€WARNã€ERRORã€ASSERTã€CLOSEï¼ˆä»£è¡¨ä¸æ‰“å°æ—¥å¿—ï¼‰
         Logger.initialize(Context appCtx, boolean isWriter, Level level);
         ...
     }
 ---------------------------------------
 ---------------------------------------
-3.¸ù¾İĞèÒª×ÔĞĞÊ¹ÓÃÒÔÏÂÀà±ğµÄÈÕÖ¾£º
+3.æ ¹æ®éœ€è¦è‡ªè¡Œä½¿ç”¨ä»¥ä¸‹ç±»åˆ«çš„æ—¥å¿—ï¼š
     Logger.v(String tag, String msg);
     Logger.d(String tag, String msg);
     Logger.i(String tag, String msg);
@@ -46,8 +52,8 @@
     Logger.e(Object target, String msg, Throwable throwable);
 ---------------------------------------
 ---------------------------------------
-4.ÌáÊ¾---ÈÕÖ¾ÎÄ¼ş±£´æÄ¿Â¼ÊÇ£º/sdcard/Android/data/°üÃû/log/ÈÕÖ¾ÎÄ¼ş
+4.æç¤º---æ—¥å¿—æ–‡ä»¶ä¿å­˜ç›®å½•æ˜¯ï¼š/sdcard/Android/data/åŒ…å/log/æ—¥å¿—æ–‡ä»¶
      
-      ---ÈÕÖ¾ÎÄ¼ş±£´æ¸ñÊ½£ºÄê_ÔÂ_ÈÕ_Ê±_·Ö_Ãë.log
+      ---æ—¥å¿—æ–‡ä»¶ä¿å­˜æ ¼å¼ï¼šå¹´_æœˆ_æ—¥_æ—¶_åˆ†_ç§’.log
       
-      ---ÈÕÖ¾´òÓ¡¸ñÊ½£ºtimeStamp+" "+"ThreadID:"+Process.myTid()+"/"+pkgName+"/"+level+"/"+tag+": "+msg+"\n"+throwable
+      ---æ—¥å¿—æ‰“å°æ ¼å¼ï¼štimeStamp+" "+"ThreadID:"+Process.myTid()+"/"+pkgName+"/"+level+"/"+tag+": "+msg+"\n"+throwable
