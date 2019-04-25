@@ -1,15 +1,17 @@
-# Functional-Logger
-实现多级日志管理/实现将日志保存到本地文件中，便于问题的快速定位和排查（Implementing multilevel log management/To save the log to the local file, it is convenient to locate and sort out the problem quickly）
-
-#Instructions(使用说明)
 使用说明：
------------------------------------------------------------
------------------------------------------------------------
------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
 1.将Logger.java导入项目
 ---------------------------------------
 ---------------------------------------
 2.自定义XXApplication类继承于Application类
+
+  在AndroidManifest.xml文件中添加：
+  <applcation
+      //添加此行代码
+      android:name=".XXApplication"
+  ></application>
 
   在XXApplication类的onCreate方法中初始化Logger:
      @Override
